@@ -2,11 +2,12 @@
 #include <tf2_stocks>
 #include <tf2attributes>
 
-bool g_bWaiting = false;
-
+bool
+	g_bWaiting = false;
+	
 Handle
 	g_hHUD = INVALID_HANDLE;
-
+	
 public Plugin myinfo = 
 {
 	name = "Sudden Death",
@@ -27,8 +28,7 @@ public void OnPluginStart()
 	g_hHUD = CreateHudSynchronizer();
 }
 
-public void OnConfigsExecuted()
-{
+public void OnConfigsExecuted() {
 	SetupConVars();
 }
 
@@ -102,7 +102,6 @@ public Action Event_PlayerSpawn(Handle hEvent, const char[] sEventName, bool bDo
 public Action Event_PlayerDeath(Handle hEvent, const char[] sEventName, bool bDontBroadcast)
 {
 	int iClient = GetClientOfUserId(GetEventInt(hEvent, "userid"));
-	
 	if (IsValidClient(iClient))
 	{
 		int deathflags = GetEventInt(hEvent, "death_flags");
@@ -119,7 +118,7 @@ public Action Timer_Respawn(Handle hTimer, any iClient)
 	TF2_RespawnPlayer(iClient);
 }
 
-void SetupConVars()
+public void SetupConVars()
 {
 	SetConVarInt(FindConVar("mp_bonusroundtime"), 5);
 	SetConVarInt(FindConVar("mp_disable_respawn_times"), 0);
