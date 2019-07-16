@@ -1,5 +1,1 @@
-Sudden Death
----
-A team wins on capture, made for KOTH maps.
-
-#### Requires TF2 Attributes
+### Requires [TF2 Attributes](https://github.com/FlaminSarge/tf2attributes/archive/master.zip)
